@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Age Calculator</title>
+</head>
+<body>
+<script type = "text/javascript">
+function  getAge()
+{
+	var e = document.getElementById("ddl_select");
+	var str = e.options[e.selectedIndex].text;
+	var name1 = document.getElementById("name").value();
+	var dob = document.getElementById("birth_date").value();
+	var Birth_Date = new Date(dob);
+	var today = new Date();
+	var dateformat = (Birth_Date, "dS, mmmm, yyyy, dddd");
+	var pattern = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+	if(pattern.test(dob))
+		{
+		var currentYear = today.getFullYear();
+		var birthdayYear = Birth_Date.getFullYear();
+		var currentMonth = today.getMonth();
+		var birthdayMonth = Birth_Date.getMonth();
+		var currentDate = today.getDate();
+		var birthdayDate = Birth_Date.getDate();
+		var age_year = currentYear - birthdayYear;
+		var age_months = currentMonth - birtthdayMonth;
+		var age_days = currentDate - BirthdayDate;
+		document.write(str + name1 + "you were born on" + Birthdate + "and you current age is " + age_year + "years" + age_months + "months" + age_days + "days");
+		return true;
+		}
+	else
+		{
+		alert("Invalid date format, Please input in(dd/mm/yyy) format!");
+		return false;
+		}	
+}
+
+</script>
+<style>
+h1
+{
+color: #008CBA;
+}
+
+.btn
+{
+background-color: #4CAF50;
+border: none;
+color: white;
+padding: 10px 25px;
+text-align: center;
+text-decoration:none;
+display: inline-block;
+font-size: 16px;
+}
+
+.btn:hover
+{
+background-color:white;
+color:black;
+border: 2px solid #4CAF50;
+}
+
+</style>
+<table>
+<h1><center>Age Calculator</center></h1>
+<tr>
+<td><select id=ddl_select><option>select</option><option>Ms.</option><option>Mr.</option></select>
+Enter Name:</td>
+<td><input type = "text" id="name" name="name"/></td>
+</tr>
+<tr>
+<td>Date of Birth:</td>
+<td><input type = "text" id="birth_date"/></td>
+</tr>
+<br><br>
+<tr>
+</tr>
+<tr>
+<td><input class = "btn" type = "submit" value = "Calculate Age" onclick = "getAge();"/></td>
+</tr>
+</table>
+</body>
+</html>
